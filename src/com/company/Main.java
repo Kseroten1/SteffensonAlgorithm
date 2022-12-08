@@ -7,7 +7,7 @@ public class Main {
     }
 
     private static double functionForStefanSyn(double k) {
-        return Math.pow((xn[0]+ k * gStep[0]),4)/2 + Math.pow((xn[1] + k * gStep[1]),2) * (xn[2] + k * gStep[2]) + Math.pow((xn[2] + k * gStep[2]),4);
+        return 4*g[2] * Math.pow((g[2]*k + xn[2]),3) + g[2] * Math.pow((g[1]*k + x[1]),2) + 2*g[0] * Math.pow((g[0]*k + x[0]),3) + 2*g[1] * (g[1]*k + x[1]) * (g[2] * k + x[2]);
     }
 
     private static double derivativeX0(double[] x) {
@@ -61,8 +61,8 @@ public class Main {
                 break;
             }
         }
-        for(int i = 0; i < 3; i++){
-            System.out.println(xn[i]);
+        for(int o = 0; o < 3; o++){
+            System.out.println(xn[o]);
         }
     }
 }
